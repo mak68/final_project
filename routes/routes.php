@@ -103,6 +103,21 @@ class routes
         $route->method = 'delete';
         $routes[] = $route;
 
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'register';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'register';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'store';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'store';
+        $routes[] = $route;
         return $routes;
     }
 }

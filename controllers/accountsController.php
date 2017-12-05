@@ -36,25 +36,29 @@ class accountsController extends http\controller
     //this is to register an account i.e. insert a new account
     public static function register()
     {
-        //https://www.sitepoint.com/why-you-should-use-bcrypt-to-hash-stored-passwords/
-        //USE THE ABOVE TO SEE HOW TO USE Bcrypt
-        print_r($_POST);
-        //this just shows creating an account.
-        $record = new account();
-        $record->email = "kwilliam@njit.edu";
-        $record->fname = "test2";
-        $record->lname = "cccc2";
-        $record->phone = "4444444";
-        $record->birthday = "0";
-        $record->gender = "male";
-        $record->password = "12345";
-        $record->save();
+        self::getTemplate('register');
+
     }
 
     //this is the function to save the user the user profile
     public static function store()
     {
-        print_r($_POST);
+           // print_r($_POST);
+        $record = new account ();
+        $record->email = $_POST['email'];
+        $record->fname = $_POST['fname'];
+        $record->lname = $_POST['lname'];
+        $record->phone = $_POST['phone'];
+        $record->birthday = $_POST['birthday'];
+        $record->gender = $_POST ['gender'];
+        $record->password = $_POST['password'];
+
+      //  print_r($record);
+        $record->save();
+
+        header("Location: https://web.njit.edu/~mak68/mvc/index.php?page=accounts&action=all");
+
+
 
     }
 
