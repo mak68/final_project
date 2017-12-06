@@ -85,17 +85,50 @@ class accountsController extends http\controller
 
     }
 
-    public static  function sort()
+    public static function delete()
     {
-        if ($_REQUEST['value']=='edit')
-        {
-            echo 'edit';
+        $record = accounts::findOne($_REQUEST['id']);
+        $record->delete();
+        header("location:https://web.njit.edu/~mak68/mvc/index.php?page=accounts&action=all");
+
+
+    }
+
+    static  public function sort()
+    {
+        if ($_POST['submit']=='edit') {
+
+            accountsController::edit();
+
+
+
         }
-        elseif ($_REQUEST['value'=='delete'])
-        {
-            echo 'delete';
+        elseif ($_POST['submit']=='delete') {
+
+            accountsController::delete();
+
+
         }
 
     }
+
+    public static function update()
+    {
+        $record = new account();
+        $record->email = $_POST['email'];
+        $record->fname = $_POST['fname'];
+        $record->lname = $_POST['lname'];
+        $record->phone = $_POST['phone'];
+        $record->birthday = $_POST['birthday'];
+        $record->gender = $_POST['gender'];
+        $record->password = $_POST['password'];
+        $record->id = $_REQUEST['id'];
+        $record->save();
+        header("location:https://web.njit.edu/~mak68/mvc/index.php?page=accounts&action=all");
+
+
+
+    }
+
 
 }

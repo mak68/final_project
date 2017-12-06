@@ -17,9 +17,9 @@
 
 <body>
 
-<?php $array = get_object_vars($data);  ?>
+<?php $array = get_object_vars($data); $string = "index.php?page=accounts&action=sort&id="; $string .= $array['id'] ?>
 
-<form action="index.php?page=accounts&action=sort" method="POST">
+<form action="<?php echo $string?>" method="POST">
 
     <div class="container">
         <label><b>email</b></label>
@@ -53,7 +53,7 @@
         <br>
 
         <label><b>password</b></label>
-        <input type="text" name="password" value="<?php echo $array ['password']?>" >
+        <input type="text" name="password" value="<?php echo $array ['password']?>" readonly>
 
         <br>
         <button type="submit" name="submit" value="edit">EDIT</button>

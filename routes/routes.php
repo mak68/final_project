@@ -111,6 +111,7 @@ class routes
         $route->method = 'register';
         $routes[] = $route;
 
+
         $route = new route();
         $route->http_method = 'POST';
         $route->action = 'store';
@@ -118,16 +119,28 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'store';
         $routes[] = $route;
-        return $routes;
+
 
         $route = new route();
-        $route->http_method = 'GET';
+        $route->http_method = 'POST';
         $route->action = 'sort';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
         $route->method = 'sort';
         $routes[] = $route;
+
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'update';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'update';
+        $routes[] = $route;
+
+
         return $routes;
+
 
     }
 }
