@@ -43,7 +43,8 @@ class accountsController extends http\controller
     //this is the function to save the user the user profile
     public static function store()
     {
-           // print_r($_POST);
+        print_r($_POST);
+
         $record = new account ();
         $record->email = $_POST['email'];
         $record->fname = $_POST['fname'];
@@ -53,11 +54,11 @@ class accountsController extends http\controller
         $record->gender = $_POST ['gender'];
         $record->password = $_POST['password'];
 
-      //  print_r($record);
         $record->save();
 
         header("Location: https://web.njit.edu/~mak68/mvc/index.php?page=accounts&action=all");
 
+        //print_r($_POST);
 
 
     }
@@ -81,6 +82,19 @@ class accountsController extends http\controller
         //        $record = accounts::findUser($_POST['uname']);
 
         print_r($_POST);
+
+    }
+
+    public static  function sort()
+    {
+        if ($_REQUEST['value']=='edit')
+        {
+            echo 'edit';
+        }
+        elseif ($_REQUEST['value'=='delete'])
+        {
+            echo 'delete';
+        }
 
     }
 

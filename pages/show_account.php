@@ -17,14 +17,52 @@
 
 <body>
 
-<?php
-//this is how you print something  $data contains the record that was selected on the table.
+<?php $array = get_object_vars($data);  ?>
 
-print_r($data);
+<form action="index.php?page=accounts&action=sort" method="POST">
+
+    <div class="container">
+        <label><b>email</b></label>
+        <input type="text"  name="email" value="<?php echo $array['email']?>" >
+
+        <br>
+
+        <label><b>firstname</b></label>
+        <input type="text" name="fname" value="<?php echo $array ['fname']?> " >
+
+        <br>
+
+        <label><b>lastname</b></label>
+        <input type="text" name="lname" value="<?php echo $array ['lname']?>" >
+
+        <br>
+
+        <label><b>phone</b></label>
+        <input type="text"  name="phone" value="<?php echo $array ['phone']?>" >
+
+        <br>
+
+        <label><b>birthday</b></label>
+        <input type="text"  name="birthday" value="<?php echo $array ['birthday']?>" >
+
+        <br>
+
+        <label><b>gender</b></label>
+        <input type="text"  name="gender" value="<?php echo $array ['gender']?>">
+
+        <br>
+
+        <label><b>password</b></label>
+        <input type="text" name="password" value="<?php echo $array ['password']?>" >
+
+        <br>
+        <button type="submit" name="submit" value="edit">EDIT</button>
+        <button type="submit" name="submit" value="delete">DELETE</button>
+    </div>
 
 
-?>
 
+</form>
 
 <script src="js/scripts.js"></script>
 </body>

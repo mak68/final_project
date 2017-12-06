@@ -119,6 +119,16 @@ class routes
         $route->method = 'store';
         $routes[] = $route;
         return $routes;
+
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'sort';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'sort';
+        $routes[] = $route;
+        return $routes;
+
     }
 }
 
