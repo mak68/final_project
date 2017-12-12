@@ -17,17 +17,55 @@
 
 <body>
 
-<?php
-//this is how you print something  $data contains the record that was selected on the table.
+<?php $array = get_object_vars($data); $string = "index.php?page=tasks&action=show&id="; $string .= $array['id'] ?>
 
-print_r($data);
-?>
-<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
-    <button type="submit" form="form1" value="delete">Delete</button>
+<form action="<?php echo $string?>" method="POST">
+
+    <div class="container">
+        <label><b>id</b></label>
+        <input type="text"  name="id" value="<?php echo $array['id']?>" >
+
+        <br>
+
+        <label><b>owneremail</b></label>
+        <input type="text" name="owneremail" value="<?php echo $array ['owneremail']?> " >
+
+        <br>
+
+        <label><b>ownerid</b></label>
+        <input type="text" name="ownerid" value="<?php echo $array ['ownerid']?>" >
+
+        <br>
+
+        <label><b>createddate</b></label>
+        <input type="text"  name="createddate" value="<?php echo $array ['createddate']?>" >
+
+        <br>
+
+        <label><b>duedate</b></label>
+        <input type="text"  name="duedate" value="<?php echo $array ['duedate']?>" >
+
+        <br>
+
+        <label><b>message</b></label>
+        <input type="text"  name="message" value="<?php echo $array ['message']?>">
+
+        <br>
+
+        <label><b>isdone</b></label>
+        <input type="text" name="isdone" value="<?php echo $array ['isdone']?>" >
+
+        <br>
+        <button type="submit" name="submit" value="edit">EDIT</button>
+        
+    </div>
+
+
+
 </form>
 
-
-
+<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1"> <button type="submit" form="form1" value="delete">Delete</button>
+</form>
 
 <script src="js/scripts.js"></script>
 </body>

@@ -26,7 +26,6 @@
         <input type="text"  name="email" value="<?php echo $array['email']?>" >
 
         <br>
-
         <label><b>firstname</b></label>
         <input type="text" name="fname" value="<?php echo $array ['fname']?> " >
 
