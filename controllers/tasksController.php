@@ -61,7 +61,7 @@ class tasksController extends http\controller
 
         $record->save();
 
-
+        header("Location: https://web.njit.edu/~mak68/mvc/index.php?page=tasks&action=all");
 
        // $record = todos::findOne($_REQUEST['id']);
         //$record->body = $_REQUEST['body'];
@@ -76,7 +76,6 @@ class tasksController extends http\controller
 
             tasksController::edit();
 
-
         }
         elseif ($_POST['submit']=='delete') {
 
@@ -85,6 +84,26 @@ class tasksController extends http\controller
         }
 
     }
+
+    public static function update()
+    {
+        $record = new todo ();
+        $record->id= $_POST['id'];
+        $record-> owneremail = $_POST['owneremail'];
+        $record->ownerid = $_POST['ownerid'];
+        $record->createddate = $_POST['createddate'];
+        $record->duedate = $_POST['duedate'];
+        $record->message = $_POST ['message'];
+        $record->isdone = $_POST['isdone'];
+        $record->save();
+        header("location:https://web.njit.edu/~mak68/mvc/index.php?page=tasks&action=all");
+
+
+
+    }
+
+
+
 
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.
     //One form is the todo and the other is just for the delete button

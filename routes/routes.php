@@ -66,6 +66,30 @@ class routes
         //GET METHOD index.php?page=accounts&action=all
 
         $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'store';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'store';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'sort';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'sort';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'update';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'update';
+        $routes[] = $route;
+
+        $route = new route();
         $route->http_method = 'GET';
         $route->action = 'all';
         $route->page = 'accounts';

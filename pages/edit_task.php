@@ -1,4 +1,3 @@
-put a page with in a form to edit a task and have a delete button in another form to delete
 
 <!doctype html>
 
@@ -19,7 +18,7 @@ put a page with in a form to edit a task and have a delete button in another for
 
 <body>
 
-<?php $array = get_object_vars($data); $string = "index.php?page=tasks&action=show&id="; $string .= $array['id'] ?>
+<?php $array = get_object_vars($data); $string = "index.php?page=tasks&action=update&id="; $string .= $array['id'] ?>
 
 <form action="<?php echo $string?>" method="POST">
 
