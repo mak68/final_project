@@ -70,6 +70,22 @@ class tasksController extends http\controller
 
     }
 
+    static  public function sort()
+    {
+        if ($_POST['submit']=='edit') {
+
+            tasksController::edit();
+
+
+        }
+        elseif ($_POST['submit']=='delete') {
+
+            tasksController::delete();
+
+        }
+
+    }
+
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.
     //One form is the todo and the other is just for the delete button
     public static function delete()
